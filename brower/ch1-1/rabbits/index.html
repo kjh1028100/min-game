@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll</title>
+    <style>
+        body{
+          background-color: black;
+        }
+        .column{
+          text-align: center;
+        }
+        img{
+          display: block;
+          margin:auto;
+        }
+        button{
+          outline:none;
+          background-color: tomato;
+          font-size:24px;
+          color:white;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="column">
+      <button class="btn">click here!</button>
+      <img src="./img/rabbit.png" alt="rabbit">
+      <img src="./img/rabbit.png" alt="rabbit">
+      <img src="./img/rabbit.png" alt="rabbit">
+      <img src="./img/rabbit.png" alt="rabbit">
+      <img src="./img/rabbit.png" alt="rabbit">
+      <img src="./img/rabbit.png" alt="rabbit">
+      <img src="./img/rabbit.png" alt="rabbit">
+      <img src="./img/rabbit.png" alt="rabbit">
+      <img src="./img/rabbit.png" alt="rabbit">
+      <img src="./img/carrot.png" alt="carrot" id="carrot">
+      <img src="./img/rabbit.png" alt="rabbit">
+      <img src="./img/rabbit.png" alt="rabbit">
+      <img src="./img/rabbit.png" alt="rabbit">
+      <img src="./img/rabbit.png" alt="rabbit">
+      <img src="./img/rabbit.png" alt="rabbit">
+      <img src="./img/rabbit.png" alt="rabbit">
+      <img src="./img/rabbit.png" alt="rabbit">
+      <img src="./img/rabbit.png" alt="rabbit">
+    </div>
+    <script>
+      const btn=document.querySelector(".btn");
+      const carrot=document.querySelector("#carrot");
+      const handleBtnClick=(event)=>{
+        carrot.scrollIntoView({behavior:"smooth",block:"center"})
+      }
+      btn.addEventListener("click",handleBtnClick);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: black;
+        }
+        .target{
+            display:block;
+            color:white;
+            background-color: orange;
+            font-size:32px;
+            margin:0 auto;
+        }
+        .container{
+            text-align: center;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <button class="target">Move To rabbit</button>
+    <ul class="container">
+        <li class="container__item"><img src="./img2/carrot.png" alt="carrot image"></li>
+        <li class="container__item"><img src="./img2/carrot.png" alt="carrot image"></li>
+        <li class="container__item"><img src="./img2/carrot.png" alt="carrot image"></li>
+        <li class="container__item"><img src="./img2/carrot.png" alt="carrot image"></li>
+        <li class="container__item"><img src="./img2/carrot.png" alt="carrot image"></li>
+        <li class="container__item"><img src="./img2/carrot.png" alt="carrot image"></li>
+        <li class="container__item"><img src="./img2/carrot.png" alt="carrot image"></li>
+        <li class="container__item"><img src="./img2/carrot.png" alt="carrot image"></li>
+        <li class="container__item"><img src="./img2/carrot.png" alt="carrot image"></li>
+        <li class="container__item active"><img src="./img2/rabbit.png" alt="rabbit image"></li>
+        <li class="container__item"><img src="./img2/carrot.png" alt="carrot image"></li>
+        <li class="container__item"><img src="./img2/carrot.png" alt="carrot image"></li>
+        <li class="container__item"><img src="./img2/carrot.png" alt="carrot image"></li>
+        <li class="container__item"><img src="./img2/carrot.png" alt="carrot image"></li>
+    </ul>
+    <script>
+        const target=document.querySelector(".target");
+        const rabbit=document.querySelector(".container .container__item.active");
+        
+        const handleTargetClick=()=>{
+            // 1.
+            // rabbit.scrollIntoView();
+            // 2.
+            window.scrollTo({
+                top:rabbit.getBoundingClientRect().top,
+                left:rabbit.getBoundingClientRect().left,
+                behavior:"smooth"
+            })
+        }
+        target.addEventListener("click",handleTargetClick);
+    </script>
+</body>
+</html>

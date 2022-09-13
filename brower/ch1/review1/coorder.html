@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js" defer></script>
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        body{
+            background-color: black;
+        }
+        .line_x{
+            width:100%;
+            height:1px;
+            background-color: white;
+            position: absolute;
+            top:50%;
+        }
+        .line_y{
+            height:100%;
+            width:1px;
+            background-color: white;
+        }
+        img{
+            width:100px;
+            height:100px;
+            transform: translate(50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="line_x"></div>
+    <div class="line_y"></div>
+    <img src="./target.png" alt="target">
+</body>
+</html>

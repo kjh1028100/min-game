@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html{
+            height:100%;
+        }
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        .container{
+            width:100%;
+            height:100%;
+            background-color: black;
+        }
+        .container .container__item{
+            background-color: blanchedalmond;
+            width:100px;
+            height:100px;
+            border-radius: 5px;
+            margin-bottom:10px;
+        }
+        .container .container__item.active{
+            background-color: blueviolet;
+        }
+
+        .btn__list{
+            list-style-type: none;
+            position:fixed;
+            top:0;
+            right:10px;
+            display:flex;
+
+        }
+        .btn__list li{
+            margin:0 4px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container__item"></div>
+        <div class="container__item"></div>
+        <div class="container__item"></div>
+        <div class="container__item"></div>
+        <div class="container__item"></div>
+        <div class="container__item"></div>
+        <div class="container__item"></div>
+        <div class="container__item"></div>
+        <div class="container__item"></div>
+        <div class="container__item"></div>
+        <div class="container__item active"></div>
+        <div class="container__item"></div>
+        <div class="container__item"></div>
+        <div class="container__item"></div>
+        <div class="container__item"></div>
+    </div>
+    <ul class="btn__list">
+        <li><button>move Scroll by 100y</button></li>
+        <li><button>location by 100Y</button></li>
+        <li><button>move active box</button></li>
+    </ul>
+    <script>
+        const active=document.querySelector(".container__item.active");
+        const btn1=document.querySelector(".btn__list li:first-child");
+        const btn2=document.querySelector(".btn__list li:nth-child(2)");
+        const btn3=document.querySelector(".btn__list li:last-child");
+
+        const handleActiveClick=(e)=>{
+            console.log(`pageX,Y : ${e.pageX} ${e.pageY}`);
+            console.log(`clientX,Y : ${e.clientX} ${e.clientY}`);
+            const DomRect=active.getBoundingClientRect();
+            console.log(DomRect);
+            return DomRect;
+        }
+        const handleBtn1Click=(e)=>{
+            window.scrollBy(0,100);
+        }
+        const handleBtn2Click=(e)=>{
+            window.scrollTo({
+                top:100,
+                left:0,
+                behavior:'smooth'
+            })
+        }
+        const handleBtn3Click=()=>{
+            active.scrollIntoView();
+        }
+        active.addEventListener("click",handleActiveClick);
+        btn1.addEventListener("click",handleBtn1Click);
+        btn2.addEventListener("click",handleBtn2Click);
+        btn3.addEventListener("click",handleBtn3Click);
+    </script>
+</body>
+</html>

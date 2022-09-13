@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style1.css" />
+    <title>Coordinates</title>
+  </head>
+  <body>
+    <div class="row"></div>
+    <div class="top"></div>
+    <img src="./img/target.png" alt="target image">
+    <span class="pointer"></span>
+    <script>
+        const row=document.querySelector(".row");
+        const Top=document.querySelector(".top");
+        const img=document.querySelector("img");
+        const pointer=document.querySelector(".pointer");
+        const handleMove=(event)=>{
+            const x=event.clientX;
+            const y=event.clientY;
+            row.style.top=`${y}px`; 
+            Top.style.left=`${x}px`;
+            img.style.top=`${y}px`;
+            img.style.left=`${x}px`;
+            pointer.style.top=`${y}px`;
+            pointer.style.left=`${x}px`;
+            pointer.innerText=`(${x}px,${y}px)`;
+        }
+        document.addEventListener("mousemove",handleMove);
+    </script>
+  </body>
+</html>

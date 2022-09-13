@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webApi-coordinates</title>
+    <style>
+        body{
+            background-color: darkolivegreen;
+            /* overflow: hidden; */
+        }
+        div{
+            width:120px;
+            height:120px;
+            border-radius: 5px;
+            background-color: coral;
+            margin-bottom:5px;
+        }
+        .unique{
+            background-color: darkslategray;
+        }
+        .btn__container{
+            position:fixed;
+            top:20px;
+            right:20px;
+            background-color: darkolivegreen;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="unique"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <aside class="btn__container">
+        <button>Scroll by 100px(y)</button>
+        <button>Scroll by 100px(y)</button>
+        <button>Scroll into unique</button>
+    </aside>
+    <script>
+        const box=document.querySelector(".unique");
+        const btnContainer=document.querySelector(".btn__container");
+        const btn=document.querySelectorAll("button");
+        btn[0].addEventListener("click",()=>{
+            window.scrollBy(0,100);
+        })
+        btn[1].addEventListener("click",()=>{
+            window.scrollTo(0,100);
+        })
+        btn[2].addEventListener("click",()=>{
+            box.scrollIntoView({behavior: "smooth", block: "start"});
+        })
+        </script>
+</body>
+</html>

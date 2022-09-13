@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+        div{
+            width:100px;
+            height:100px;
+            border-radius: 5px;
+            margin:10px 0;
+            background-color: orange;
+        }
+        .unique{
+            background-color: chocolate;
+        }
+        .btn{
+            position:fixed;
+            top:0px;
+            right:0px;
+            background-color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="unique"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <section class="btn">
+        <button>Scroll by 100px down(y)</button>
+        <button>Scroll by 100px up(y)</button>
+        <button>Scroll by 100px(y)</button>
+        <button>Scroll into unique</button>
+    </section>
+    <script>
+        const btn=document.querySelectorAll("button");
+        const unique=document.querySelector(".unique");
+        const handleBtnDownClick=(event)=>{
+            window.scrollBy(0,100);
+        }
+        const handleBtnUpClick=(event)=>{
+            window.scrollBy(0,-100);
+        }
+        const handleBtnClick=()=>{
+            window.scroll(0,100);
+        }
+        const handleBtnUniqueClick=(event)=>{
+            const rom=unique.getBoundingClientRect();
+            console.log(rom);
+            window.scrollTo({
+                top:rom.bottom,
+                left:rom.x,
+                behavior:"smooth"
+            });
+        }
+        btn[0].addEventListener("click",handleBtnDownClick);
+        btn[1].addEventListener("click",handleBtnUpClick);
+        btn[2].addEventListener("click",handleBtnClick);
+        btn[3].addEventListener("click",handleBtnUniqueClick);
+    </script>
+</body>
+</html>

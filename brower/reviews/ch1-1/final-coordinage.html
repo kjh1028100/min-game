@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin:0;
+        }
+        .row{
+            height:1px;
+            background-color: white;
+            width:100%;
+            position:absolute;
+        }
+        .column{
+            background-color: white;
+            height:100%;
+            width:1px;
+            position:absolute;
+        }
+        body{
+            background-color: black;
+        }
+        .target{
+            width:100px;
+            height:100px;
+            position: absolute;
+        }
+        .target__description{
+            color:white;
+            font-size:24px;
+            position:absolute;
+            margin:20px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="row"></div>
+    <div class="column"></div>
+    <img src="./img/target.png" alt="target image" class="target">
+    <span class="target__description">(0,0)</span>
+    <script>
+        const row=document.querySelector(".row");
+        const column=document.querySelector(".column");
+        const target=document.querySelector(".target");
+        const description=document.querySelector(".target__description");
+        // script에서 이미지가 로드가 안될경우 이 메소드는 실행안될수 있다 -> load이벤트를 통해서 load된 후 실행시키면 된다.
+        const targetRect=target.getBoundingClientRect();
+        const targetWidth=targetRect.width/2;
+        const targetHeight=targetRect.height/2;
+        const handleMousemove=(e)=>{
+            const x=e.clientX;
+            const y=e.clientY;
+            row.style.transform=`translate(0px,${y}px)`;
+            column.style.transform=`translate(${x}px,0px)`;
+            target.style.transform=`translate(${x-targetWidth}px,${y-targetHeight}px)`;
+            description.textContent=`(${x} ${y})`;
+            description.style.transform=`translate(${x+20}px,${y+20}px)`;
+        }
+        document.addEventListener("mousemove",handleMousemove);
+    </script>
+</body>
+</html>
